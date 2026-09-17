@@ -1,0 +1,15 @@
+name = "atm-rx-mesh"
+main = "src/worker.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+SETTLEMENT_DRIVER = "mock"
+TAKE_RATE_PERCENT = "0.05"
+MIN_TOLL_SATS = "1"
+MESH_ROOT_KEY = "sovereign_mesh_edge_root_key_atm_rx_2026"
+
+# Production Treasury Integration:
+# LNBITS_API_URL = "https://demo.lnbits.com"
+# LNBITS_INVOICE_KEY = "f76eb7089bc94495b82bd9c9f7dcac4e"
+# LNBITS_ADMIN_KEY = "..."

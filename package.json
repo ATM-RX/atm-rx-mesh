@@ -1,0 +1,57 @@
+{
+  "name": "atm-rx-mesh",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "⚡ Sovereign AI Agent Tool Gateway & Clearinghouse with Automated Protocol Take-Rate (L402 / Bitcoin Lightning Network)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "atm-rx-mesh": "./bin/mesh.js",
+    "mesh": "./bin/mesh.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/server/index.ts",
+    "serve": "tsx src/server/index.ts",
+    "cli": "tsx src/cli.ts",
+    "deploy": "npx wrangler deploy",
+    "test": "tsx tests/run-tests.ts"
+  },
+  "keywords": [
+    "l402",
+    "lightning-network",
+    "agentic-ai",
+    "ai-agents",
+    "micro-payments",
+    "clearinghouse",
+    "reverse-proxy",
+    "protocol-fee",
+    "cloudflare-workers"
+  ],
+  "author": "Brandon Binion (ATM-RX)",
+  "license": "MIT",
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "hono": "^4.6.14",
+    "qrcode-terminal": "^0.12.0",
+    "undici": "^6.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "wrangler": "^3.114.17"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
