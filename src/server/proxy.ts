@@ -37,15 +37,20 @@ export function createProxyHandler(config: ProxyConfig): Handler {
     const method = c.req.method.toUpperCase();
     const authHeader = c.req.header('Authorization');
 
-    // 2. Prepare forward headers
+    // 2. Prepare forward headers (strictly strip hop-by-hop and Cloudflare edge loop headers)
     const forwardHeaders: Record<string, string> = {};
     for (const [key, value] of Object.entries(c.req.header())) {
       const lower = key.toLowerCase();
-      // Filter hop-by-hop & proxy-specific headers
-      if (!['host', 'x-target-url', 'authorization', 'connection'].includes(lower)) {
+      if (
+        !['host', 'x-target-url', 'authorization', 'connection', 'accept-encoding'].includes(lower) &&
+        !lower.startsWith('cf-') &&
+        !lower.startsWith('x-forwarded-') &&
+        !lower.startsWith('x-real-')
+      ) {
         forwardHeaders[key] = value;
       }
     }
+    forwardHeaders['user-agent'] = c.req.header('user-agent') || 'ATM-RX-Mesh/1.0';
 
     let requestBody: string | undefined;
     if (method !== 'GET' && method !== 'HEAD') {
