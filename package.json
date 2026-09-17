@@ -1,6 +1,6 @@
 {
   "name": "atm-rx-mesh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "⚡ Sovereign AI Agent Tool Gateway & Clearinghouse with Automated Protocol Take-Rate (L402 / Bitcoin Lightning Network)",
   "main": "dist/index.js",
