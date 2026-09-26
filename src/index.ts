@@ -14,3 +14,4 @@ export * from './broker/drivers/lnbits.js';
 export * from './server/proxy.js';
 export * from './server/app.js';
 export * from './client/mesh-client.js';
+export * from './integrations/linear.js';
